@@ -3,8 +3,8 @@ import { StyledProps } from "../../../types";
 
 export const CardContainer = styled.div`
   position: relative;
-  background-color: var(--darker-grey);
-  border-radius: 0 4px 4px 0;
+  background-color: var(--lighter-grey);
+  border-radius: 0 40px 40px 0;
   width: 60%;
   text-align: center;
   font-size: var(--fs-md);
@@ -35,7 +35,7 @@ export const AccordianContainer = styled.div`
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-`;
+  `;
 
 export const AnswerContainer = styled.div`
   display: flex;
@@ -44,6 +44,7 @@ export const AnswerContainer = styled.div`
   border: 1px solid black;
   border-radius: 4px 4px 0 0;
   height: 50px;
+  cursor: pointer;
 `;
 
 export const Subtitle = styled.h3`

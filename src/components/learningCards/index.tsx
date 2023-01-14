@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { generalProcedureQuestions } from "../../data";
+import { a350Questions, b777Questions, dangerousGoodsQuestions, firstAidQuestions, generalProcedureQuestions } from "../../data";
 import { QuestionTypes } from "../../types";
-import { Card } from "../index";
+import { Card, LearningQuestionSelector } from "../index";
 import {
   ButtonContainer,
   CardContainer,
   Container,
-  SideContainer,
   Button,
 } from "./styles/learningCards";
 
@@ -23,10 +22,10 @@ const LearningCards = () => {
 
   useEffect(() => {
     const matchingParams: Record<string, QuestionTypes[]> = {
-      // b777:
-      // a350:
-      // dangerous_goods:
-      // first_aid:
+      b777: b777Questions,
+      a350: a350Questions,
+      dangerous_goods: dangerousGoodsQuestions,
+      first_aid: firstAidQuestions,
       general_procedures: generalProcedureQuestions,
     };
     if (matchingParams[topic]) {
@@ -41,10 +40,15 @@ const LearningCards = () => {
   return (
     <Container>
       <CardContainer>
-        <SideContainer />
+        <LearningQuestionSelector
+          setQuestionNumber={setQuestionNumber}
+          topic={topic}
+          questions={questions}
+          questionNumber={questionNumber}
+        />
         {question && (
           <Card
-            question={question}
+            questionObject={question}
             questionNumber={questionNumber}
             totalNumberOfQuestions={questions.length}
           />

@@ -2,9 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --white: #ffffff;
+        --white: #ebe8e8;
         --green: #00645a;
-        --lighter-grey: #ebedec;
+        --lighter-grey: #c6c2c1;
         --darker-grey: #ababab;
         --darker-grey-boxshadow: #757575;
 
@@ -36,8 +36,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html {
-        background-color: var(--lighter-grey);
+        background-color: var(--white);
         overflow-x: hidden;
+
     }
 
     .section_container {

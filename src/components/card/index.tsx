@@ -1,5 +1,5 @@
 import { QuestionTypes } from "../../types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   AccordianContainer,
   AnswerContainer,
@@ -13,19 +13,25 @@ import {
   Answer,
 } from "./styles/card";
 
-interface Props {
+export interface CardProps {
   questionNumber: number;
   totalNumberOfQuestions: number;
-  question: QuestionTypes;
+  questionObject: QuestionTypes;
 }
 
 const Card = ({
-  question: Q,
+  questionObject,
   questionNumber,
   totalNumberOfQuestions,
-}: Props) => {
+}: CardProps) => {
   const [active, setActive] = useState(false);
-  const { title, question, correctAnswer, resources } = Q;
+  const { title, question, answers, resources } = questionObject;
+
+  useEffect(() => {
+    setActive(false);
+  }, [questionObject]);
+
+
   return (
     <CardContainer>
       <TitleContainer>
@@ -35,12 +41,12 @@ const Card = ({
         </SmallText>
       </TitleContainer>
       <Question>{question}</Question>
-      <AccordianContainer onClick={() => setActive(!active)}>
-        <AnswerContainer>
+      <AccordianContainer>
+        <AnswerContainer onClick={() => setActive(!active)}>
           <Subtitle>Answer</Subtitle>
           <Subtitle>{active ? "-" : "+"}</Subtitle>
         </AnswerContainer>
-        <Answer active={active}>{correctAnswer}</Answer>
+        <Answer active={active}>{answers[0].text}</Answer>
       </AccordianContainer>
       <Resources>Resources: {resources}</Resources>
     </CardContainer>

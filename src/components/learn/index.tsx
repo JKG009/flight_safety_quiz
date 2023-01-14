@@ -1,4 +1,3 @@
-import { PageContainer } from "../pageContainer";
 import {
   Container,
   TopicContainer,
@@ -20,9 +19,7 @@ const Learn = () => {
   ));
 
   return (
-    <PageContainer>
       <Container>{renderTopics}</Container>
-    </PageContainer>
   );
 };
 

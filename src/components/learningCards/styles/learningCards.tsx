@@ -8,13 +8,7 @@ export const Container = styled.div`
 export const CardContainer = styled.div`
   display: flex;
   justify-content: center;
-  min-height: 700px;
-`;
-
-export const SideContainer = styled.aside`
-  width: 30%;
-  background-color: lightcoral;
-  border-radius: 4px 0 0 4px;
+  height: 700px;
 `;
 
 export const ButtonContainer = styled.div`
@@ -33,18 +27,28 @@ export const Button = styled.button`
   border-radius: var(--border-radius);
   transition: var(--transition-ease);
   cursor: pointer;
+  animation: buttonAnimation 5s infinite;
+
+  @keyframes buttonAnimation {
+    50% {
+      box-shadow: rgba(0, 100, 90, 1) 0 10px 12px;
+    }
+  }
 
   :hover {
     box-shadow: rgba(0, 100, 90, 1) 0 4px 12px;
     transform: translateY(-3px);
+    animation: none;
   }
   :active {
     transform: translateY(0);
     box-shadow: rgba(0, 100, 90, 1) 0 2px 4px;
+    animation: none;
   }
 
   :disabled {
-    background-color: var(--darker-grey);
+    background-color: var(--lighter-grey);
+    animation: none;
   }
 
   :disabled&:hover {

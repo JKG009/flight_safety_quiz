@@ -5,14 +5,20 @@
 export interface StyledProps {
   img?: string;
   active?: boolean;
+  currentQuestion?: boolean;
+  status?: string;
+  selected?: boolean;
+}
+
+export interface Answers {
+  id: number;
+  text: string;
+  isCorrectAnswer: boolean;
 }
 
 export interface QuestionTypes {
   title: string;
   question: string;
-  correctAnswer: string;
-  wrongAnswers: string[];
   resources: string;
-  flagged: boolean;
-  answered: boolean;
+  answers: Answers[];
 }

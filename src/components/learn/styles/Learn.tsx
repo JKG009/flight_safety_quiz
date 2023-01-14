@@ -54,12 +54,22 @@ export const Button = styled(Link)`
   padding: 0.6rem 1.2rem;
   border-radius: var(--border-radius);
   transition: var(--transition-ease);
+  animation: buttonAnimation 5s infinite;
+
+  @keyframes buttonAnimation {
+    50% {
+      box-shadow: rgba(0, 100, 90, 1) 0 10px 12px;
+    }
+  }
+
   :hover {
     box-shadow: rgba(0, 100, 90, 1) 0 4px 12px;
     transform: translateY(-3px);
+    animation: none;
   }
   :active {
     transform: translateY(0);
     box-shadow: rgba(0, 100, 90, 1) 0 2px 4px;
+    animation: none;
   }
 `;
