@@ -1,4 +1,4 @@
-import { QuestionTypes } from "../../types";
+import { Question as QuestionType } from "../../types";
 import {
   Button,
   Container,
@@ -10,7 +10,7 @@ import {
 interface Props {
   setQuestionNumber: React.Dispatch<React.SetStateAction<number>>;
   topic: string;
-  questions: (QuestionTypes | undefined)[];
+  questions: (QuestionType | undefined)[];
   questionNumber: number;
 }
 
@@ -25,15 +25,17 @@ const LearningQuestionSelector = ({
       <Title>{topic.replace(/_/g, " ")}</Title>
       <Questions>
         {questions.map((question, index) => {
-          return question?.title && (
-            <Question>
-              <Button
-                currentQuestion={questionNumber === index}
-                onClick={() => setQuestionNumber(index)}
-              >
-                {question.title}
-              </Button>
-            </Question>
+          return (
+            question?.title && (
+              <Question>
+                <Button
+                  currentQuestion={questionNumber === index}
+                  onClick={() => setQuestionNumber(index)}
+                >
+                  {question.title}
+                </Button>
+              </Question>
+            )
           );
         })}
       </Questions>

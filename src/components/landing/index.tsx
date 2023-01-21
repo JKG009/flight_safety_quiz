@@ -20,8 +20,8 @@ const Landing = () => {
         <Text>
           Currently the topics included are General Procedures, First
           Aid/Illnesses, Dangerous Goods (DG), A350 & B777. Equipment Operation
-          is not included as the answer is too long, therefore you should refer
-          to the manual.
+          is not included as the answers are too long, therefore you should
+          refer to the manual.
         </Text>
       </Container>
       <Container>

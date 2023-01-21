@@ -4,9 +4,9 @@ import {
   dangerousGoodsQuestions,
   firstAidQuestions,
   generalProcedureQuestions,
-  questionDetails,
 } from "../data";
 import { NUMBER_OF_QUESTIONS, NUMBER_OF_DG_QUESTIONS } from "../config";
+import { Answer } from "../types";
 
 export const getQuestions = () => {
   const questionsArray = [
@@ -48,31 +48,26 @@ export const getCombinedQuestionsDetails = (
   questionDetails: any
 ) => {
   let object = {};
-
   for (let i = 0; i < combinedQuestionsArr.length; i++) {
     object = {
       ...object,
       [combinedQuestionsArr[i].title]: {
-        ...[questionDetails[combinedQuestionsArr[i].title]],
+        ...questionDetails[combinedQuestionsArr[i].title],
       },
     };
   }
-
   return object;
 };
 
-// for (let i = 0; i < combinedQuestionsArr.length; i++) {
-//   for (const [key, value] of Object.entries(
-//     questionDetails[combinedQuestionsArr[i].title]
-//   )) {
-//     console.log("KEY:", key, "VALUE:", value);
-//     console.log([questionDetails[combinedQuestionsArr[i].title]]);
-//     object = {
-//       ...object,
-//       [combinedQuestionsArr[i].title]: {
-//         ...[questionDetails[combinedQuestionsArr[i].title]],
-//         [key]: value,
-//       },
-//     };
-//   }
-// }
+export const shuffleAnswers = (arr: Answer[]) => {
+  return arr.sort(() => 0.5 - Math.random());
+};
+
+export const formatTime = (time: number) => {
+  let minutes: string | number = Math.floor(time / 60);
+  let seconds: string | number = Math.floor(time - minutes * 60);
+
+  if (minutes < 10) minutes = `0${minutes}`;
+  if (seconds < 10) seconds = `0${seconds}`;
+  return `${minutes} : ${seconds}`;
+};

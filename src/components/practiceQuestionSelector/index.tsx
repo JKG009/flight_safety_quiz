@@ -8,11 +8,11 @@ import {
   PracticeQuestionSelectorSubtitle as Subtitle,
   PracticeQuestionSelectorText as Text,
 } from "./styles/practiceQuestionSelector";
-import { QuestionTypes } from "../../types";
+import { CombinedQuestionDetails, Question as QuestionType } from "../../types";
 import { NUMBER_OF_QUESTIONS } from "../../config";
 
 export interface PracticeQuestionProps {
-  questionList: QuestionTypes[];
+  questionList: QuestionType[];
   setQuestionList: React.Dispatch<
     React.SetStateAction<
       {
@@ -27,7 +27,7 @@ export interface PracticeQuestionProps {
       }[]
     >
   >;
-  dGQuestionList: QuestionTypes[];
+  dGQuestionList: QuestionType[];
   setDGQuestionList: React.Dispatch<
     React.SetStateAction<
       {
@@ -44,8 +44,8 @@ export interface PracticeQuestionProps {
   >;
   setQuestionNumber: React.Dispatch<React.SetStateAction<number>>;
   questionNumber: number;
-  //  TODO change any
-  combinedQuestionsDetails: any;
+  combinedQuestionsDetails: CombinedQuestionDetails;
+  endTest: boolean;
 }
 
 const PracticeQuestionSelector = ({
@@ -56,6 +56,7 @@ const PracticeQuestionSelector = ({
   setQuestionNumber,
   questionNumber,
   combinedQuestionsDetails,
+  endTest,
 }: PracticeQuestionProps) => {
   return (
     <Container>
@@ -63,19 +64,27 @@ const PracticeQuestionSelector = ({
       <Questions>
         <Subtitle>Non Dangerous Goods</Subtitle>
         {questionList.map(({ title }, index) => {
-          // console.log(combinedQuestionsDetails["B777 Q1"][0].id)
-          console.log(combinedQuestionsDetails)
           return (
             <Question>
               <Button
                 currentQuestion={questionNumber === index}
-                // status={answered ? "#1A6D2D" : flagged ? "red" : "black"}
                 onClick={() => setQuestionNumber(index)}
               >
-                {title}{" "}
-                <Text>
-                  {/* {answered && "[Answered]"} {flagged && "[Marked for review]"} */}
-                </Text>
+                {title}
+                {endTest ? (
+                  <Text>
+                    {combinedQuestionsDetails[title]?.answeredCorrectly
+                      ? " [Correct]"
+                      : " [Incorrect]"}
+                  </Text>
+                ) : (
+                  <Text>
+                    {combinedQuestionsDetails[title]?.answeredCorrectly !==
+                      null && " [Answered]"}
+                    {combinedQuestionsDetails[title]?.flagged &&
+                      " [Marked for review]"}
+                  </Text>
+                )}
               </Button>
             </Question>
           );
@@ -88,13 +97,23 @@ const PracticeQuestionSelector = ({
           <Question>
             <Button
               currentQuestion={questionNumber === index + NUMBER_OF_QUESTIONS}
-              // status={answered ? "#1A6D2D" : flagged ? "red" : "black"}
               onClick={() => setQuestionNumber(NUMBER_OF_QUESTIONS + index)}
             >
               {title}
-              <Text>
-                {/* {answered && "[Answered]"} {flagged && "[Marked for review]"} */}
-              </Text>
+              {endTest ? (
+                <Text>
+                  {combinedQuestionsDetails[title]?.answeredCorrectly
+                    ? " [Correct]"
+                    : " [Incorrect]"}
+                </Text>
+              ) : (
+                <Text>
+                  {combinedQuestionsDetails[title]?.answeredCorrectly !==
+                    null && " [Answered]"}
+                  {combinedQuestionsDetails[title]?.flagged &&
+                    " [Marked for review]"}
+                </Text>
+              )}
             </Button>
           </Question>
         ))}

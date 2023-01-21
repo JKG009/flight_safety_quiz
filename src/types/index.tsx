@@ -1,24 +1,31 @@
-// export type StyledTypes = {
-//   children: React.ReactNode;
-// };
-
 export interface StyledProps {
   img?: string;
   active?: boolean;
   currentQuestion?: boolean;
   status?: string;
-  selected?: boolean;
+  selected?: boolean | string | null;
 }
 
-export interface Answers {
+export interface Answer {
   id: number;
   text: string;
   isCorrectAnswer: boolean;
 }
 
-export interface QuestionTypes {
+export interface Question {
   title: string;
   question: string;
   resources: string;
-  answers: Answers[];
+  answers: Answer[];
+}
+
+export interface QuestionDetail {
+  id: string;
+  flagged: boolean;
+  answer: string | null;
+  answeredCorrectly: boolean | null;
+}
+
+export interface CombinedQuestionDetails {
+  [index: string]: Question & QuestionDetail;
 }

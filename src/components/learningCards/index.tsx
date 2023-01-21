@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { a350Questions, b777Questions, dangerousGoodsQuestions, firstAidQuestions, generalProcedureQuestions } from "../../data";
-import { QuestionTypes } from "../../types";
+import {
+  a350Questions,
+  b777Questions,
+  dangerousGoodsQuestions,
+  firstAidQuestions,
+  generalProcedureQuestions,
+} from "../../data";
+import { Question } from "../../types";
 import { Card, LearningQuestionSelector } from "../index";
 import {
   ButtonContainer,
@@ -17,11 +23,11 @@ type Params = {
 const LearningCards = () => {
   const navigate = useNavigate();
   const { topic = "" } = useParams<Params>();
-  const [questions, setQuestions] = useState<(QuestionTypes | undefined)[]>([]);
+  const [questions, setQuestions] = useState<(Question | undefined)[]>([]);
   const [questionNumber, setQuestionNumber] = useState<number>(0);
 
   useEffect(() => {
-    const matchingParams: Record<string, QuestionTypes[]> = {
+    const matchingParams: Record<string, Question[]> = {
       b777: b777Questions,
       a350: a350Questions,
       dangerous_goods: dangerousGoodsQuestions,

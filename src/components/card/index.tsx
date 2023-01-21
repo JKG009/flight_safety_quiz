@@ -1,4 +1,4 @@
-import { QuestionTypes } from "../../types";
+import { Question as QuestionType } from "../../types";
 import { useEffect, useState } from "react";
 import {
   AccordianContainer,
@@ -16,7 +16,7 @@ import {
 export interface CardProps {
   questionNumber: number;
   totalNumberOfQuestions: number;
-  questionObject: QuestionTypes;
+  questionObject: QuestionType;
 }
 
 const Card = ({
@@ -30,7 +30,6 @@ const Card = ({
   useEffect(() => {
     setActive(false);
   }, [questionObject]);
-
 
   return (
     <CardContainer>
