@@ -1,4 +1,5 @@
-export const b777Questions = [
+// 26
+const b777Questions = [
   {
     title: "B777 Priority Code",
     question:
@@ -481,7 +482,7 @@ export const b777Questions = [
       },
       {
         id: 3,
-        text: "R1",
+        text: "R2",
         isCorrectAnswer: false,
       },
       {
@@ -711,3 +712,5 @@ export const b777Questions = [
     ],
   },
 ];
+
+export default b777Questions;

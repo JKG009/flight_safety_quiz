@@ -1,4 +1,5 @@
-export const dangerousGoodsQuestions = [
+// 13
+const dangerousGoodsQuestions = [
   {
     title: "Number of DG Classes",
     question: "How many classes of dangerous goods are there?",
@@ -361,3 +362,5 @@ export const dangerousGoodsQuestions = [
     ],
   },
 ];
+
+export default dangerousGoodsQuestions;

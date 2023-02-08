@@ -1,4 +1,5 @@
-export const a350Questions = [
+// 29
+const a350Questions = [
   {
     title: "A350 Priority Code",
     question:
@@ -791,3 +792,5 @@ export const a350Questions = [
     ],
   },
 ];
+
+export default a350Questions;

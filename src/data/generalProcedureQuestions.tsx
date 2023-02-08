@@ -1,4 +1,5 @@
-export const generalProcedureQuestions = [
+// 3
+const generalProcedureQuestions = [
   {
     title: "Alert Phase",
     question:
@@ -84,3 +85,5 @@ export const generalProcedureQuestions = [
     ],
   },
 ];
+
+export default generalProcedureQuestions;

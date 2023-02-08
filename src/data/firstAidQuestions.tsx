@@ -1,4 +1,5 @@
-export const firstAidQuestions = [
+// 31
+const firstAidQuestions = [
   {
     title: "Adult Breathing Rate",
     question: "What is the normal breathing rate of an adult?",
@@ -858,3 +859,5 @@ export const firstAidQuestions = [
     ],
   },
 ];
+
+export default firstAidQuestions;

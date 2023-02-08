@@ -1,4 +1,4 @@
-export const questionDetails = {
+const questionDetails = {
   "Alert Phase": {
     id: "Alert Phase",
     flagged: false,
@@ -611,4 +611,24 @@ export const questionDetails = {
     answer: null,
     answeredCorrectly: null,
   },
+  "A330 Priority Code": {
+    id: "A330 Priority Code",
+    flagged: false,
+    answer: null,
+    answeredCorrectly: null,
+  },
+  "A330 Type I Door Escape System": {
+    id: "A330 Type I Door Escape System",
+    flagged: false,
+    answer: null,
+    answeredCorrectly: null,
+  },
+  "A330 Ditching Door Types": {
+    id: "A330 Ditching Door Types",
+    flagged: false,
+    answer: null,
+    answeredCorrectly: null,
+  },
 };
+
+export default questionDetails;

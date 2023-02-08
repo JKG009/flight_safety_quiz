@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
+  a330Questions,
   a350Questions,
   b777Questions,
   dangerousGoodsQuestions,
@@ -33,6 +34,7 @@ const LearningCards = () => {
       dangerous_goods: dangerousGoodsQuestions,
       first_aid: firstAidQuestions,
       general_procedures: generalProcedureQuestions,
+      a330: a330Questions
     };
     if (matchingParams[topic]) {
       setQuestions(matchingParams[topic]);
