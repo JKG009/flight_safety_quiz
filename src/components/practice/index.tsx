@@ -161,6 +161,13 @@ const Practice = () => {
             >
               Next
             </Button>
+            <Button
+              onClick={() => {
+                setEndTest(true);
+              }}
+            >
+              End Test
+            </Button>
           </ButtonContainer>
         </Container>
       )}

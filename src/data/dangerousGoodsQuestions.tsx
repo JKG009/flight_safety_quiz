@@ -173,7 +173,7 @@ const dangerousGoodsQuestions = [
     answers: [
       {
         id: 1,
-        text: "E-cigarettes are permitted onboard provided they are individually protected.",
+        text: "E-cigarettes are permitted onboard as carry-on provided they are individually protected.",
         isCorrectAnswer: true,
       },
       {
@@ -188,7 +188,7 @@ const dangerousGoodsQuestions = [
       },
       {
         id: 4,
-        text: "E-cigarettes are permitted onboard provided they are used onboard.",
+        text: "E-cigarettes are permitted onboard provided they are not used onboard.",
         isCorrectAnswer: false,
       },
     ],
