@@ -129,16 +129,16 @@ const Practice = () => {
               />
             )}
           </CardContainer>
-          <ButtonContainer>
-            <Button
-              disabled={questionNumber <= 0}
-              onClick={() => {
-                setQuestionNumber(questionNumber - 1);
-              }}
-            >
-              Prev
-            </Button>
-            {!endTest && (
+          {!endTest && (
+            <ButtonContainer>
+              <Button
+                disabled={questionNumber <= 0}
+                onClick={() => {
+                  setQuestionNumber(questionNumber - 1);
+                }}
+              >
+                Prev
+              </Button>
               <Button
                 onClick={() => {
                   setCombinedQuestionsDetails((state) => ({
@@ -152,23 +152,23 @@ const Practice = () => {
               >
                 Mark for Review
               </Button>
-            )}
-            <Button
-              disabled={questionNumber >= combinedQuestionList.length - 1}
-              onClick={() => {
-                setQuestionNumber(questionNumber + 1);
-              }}
-            >
-              Next
-            </Button>
-            <Button
-              onClick={() => {
-                setEndTest(true);
-              }}
-            >
-              End Test
-            </Button>
-          </ButtonContainer>
+              <Button
+                disabled={questionNumber >= combinedQuestionList.length - 1}
+                onClick={() => {
+                  setQuestionNumber(questionNumber + 1);
+                }}
+              >
+                Next
+              </Button>
+              <Button
+                onClick={() => {
+                  setEndTest(true);
+                }}
+              >
+                End Test
+              </Button>
+            </ButtonContainer>
+          )}
         </Container>
       )}
     </PageContainer>

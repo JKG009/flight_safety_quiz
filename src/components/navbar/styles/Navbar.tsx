@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { StyledProps } from "../../../types";
 
 export const NavContainer = styled.nav`
   width: 100vw;
-  min-width: 500px;
+  min-width: 1240px;
   background-color: var(--green);
   height: 70px;
 `;
@@ -24,10 +25,17 @@ export const LinksContainer = styled.div`
   min-width: 300px;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)<StyledProps>`
   color: var(--white);
   text-decoration: none;
   font-size: var(--fs-xl);
+  ${({ selectedTab }) =>
+    selectedTab
+      ? `text-decoration: underline;
+  `
+      : `:hover {color: var(--green); text-shadow: var(--text-shadow)}`}
+
+  transition: var(--transition-ease-in-out);
 `;
 
 export const Logo = styled(Link)`

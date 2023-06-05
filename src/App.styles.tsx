@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --white: #ebe8e8;
         --green: #00645a;
+        --lightest-grey:#d4d4d4; 
         --lighter-grey: #c6c2c1;
         --darker-grey: #ababab;
         --darker-grey-boxshadow: #757575;
@@ -19,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 
         --max-width: 1440px;
         --border-radius: 4px;
+        --text-shadow: 0.8px 0.8px 0 #fff, -0.8px -0.8px 0 #fff,  0.8px -0.8px 0 #fff, -0.8px  0.8px 0 #fff, 0.8px  0.8px 0 #fff;
 
         --transition-ease: all 0.5s ease;
         --transition-ease-faster: all 0.2s ease;
@@ -36,9 +38,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html {
+        min-width: 1240px;
         background-color: var(--white);
         overflow-x: hidden;
-
     }
 
     .section_container {

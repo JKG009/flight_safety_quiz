@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { StyledProps } from "../../../types";
 
 export const AnswerContainer = styled.div`
+  margin: 0 1rem;
 `;
 
 export const Answer = styled.button<StyledProps>`
@@ -12,5 +13,5 @@ export const Answer = styled.button<StyledProps>`
   cursor: pointer;
   user-select: none;
   border-radius: var(--border-radius);
-  ${({selected}) => selected && "background-color: #999905;"}
+  ${({ selected }) => selected && "background-color: #999905;"}
 `;

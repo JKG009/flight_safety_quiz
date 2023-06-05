@@ -4,6 +4,8 @@ export interface StyledProps {
   currentQuestion?: boolean;
   status?: string;
   selected?: boolean | string | null;
+  selectedTab?: boolean;
+  endTest?: boolean;
 }
 
 export interface Answer {

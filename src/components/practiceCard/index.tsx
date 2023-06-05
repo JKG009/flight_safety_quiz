@@ -124,6 +124,10 @@ const PracticeCard = ({
   }, [timeRemaining]);
 
   useEffect(() => {
+    endTest && clearInterval(timerId.current)
+  }, [endTest])
+  
+  useEffect(() => {
     setShuffledAnswers(shuffleAnswers(answers));
   }, [answers]);
 

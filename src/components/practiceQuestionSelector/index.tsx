@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   PracticeQuestionSelectorContainer as Container,
   PracticeQuestionSelectorTitle as Title,
@@ -69,21 +68,23 @@ const PracticeQuestionSelector = ({
               <Button
                 currentQuestion={questionNumber === index}
                 onClick={() => setQuestionNumber(index)}
+                endTest={endTest}
               >
                 {title}
                 {endTest ? (
-                  <Text>
-                    {combinedQuestionsDetails[title]?.answeredCorrectly
-                      ? " [Correct]"
-                      : " [Incorrect]"}
-                  </Text>
+                  combinedQuestionsDetails[title]?.answeredCorrectly ? (
+                    <Text status="green"> [Correct]</Text>
+                  ) : (
+                    <Text status="red"> [Incorrect]</Text>
+                  )
                 ) : (
-                  <Text>
+                  <>
                     {combinedQuestionsDetails[title]?.answeredCorrectly !==
-                      null && " [Answered]"}
-                    {combinedQuestionsDetails[title]?.flagged &&
-                      " [Marked for review]"}
-                  </Text>
+                      null && <Text status="green"> [Answered]</Text>}
+                    {combinedQuestionsDetails[title]?.flagged && (
+                      <Text status="red"> [Marked for review]</Text>
+                    )}
+                  </>
                 )}
               </Button>
             </Question>
@@ -98,21 +99,23 @@ const PracticeQuestionSelector = ({
             <Button
               currentQuestion={questionNumber === index + NUMBER_OF_QUESTIONS}
               onClick={() => setQuestionNumber(NUMBER_OF_QUESTIONS + index)}
+              endTest={endTest}
             >
               {title}
               {endTest ? (
-                <Text>
-                  {combinedQuestionsDetails[title]?.answeredCorrectly
-                    ? " [Correct]"
-                    : " [Incorrect]"}
-                </Text>
+                combinedQuestionsDetails[title]?.answeredCorrectly ? (
+                  <Text status="green"> [Correct]</Text>
+                ) : (
+                  <Text status="red"> [Incorrect]</Text>
+                )
               ) : (
-                <Text>
+                <>
                   {combinedQuestionsDetails[title]?.answeredCorrectly !==
-                    null && " [Answered]"}
-                  {combinedQuestionsDetails[title]?.flagged &&
-                    " [Marked for review]"}
-                </Text>
+                    null && <Text status="green"> [Answered]</Text>}
+                  {combinedQuestionsDetails[title]?.flagged && (
+                    <Text status="red"> [Marked for review]</Text>
+                  )}
+                </>
               )}
             </Button>
           </Question>

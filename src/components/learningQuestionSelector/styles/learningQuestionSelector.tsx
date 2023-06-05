@@ -42,11 +42,11 @@ export const Question = styled.li`
 `;
 
 export const Button = styled.a<StyledProps>`
-  ${({currentQuestion}) => currentQuestion && "color: white;"}
+  ${({ currentQuestion }) => currentQuestion && "color: var(--white);"}
   cursor: pointer;
   transition: var(--transition-ease);
   :hover,
   :active {
-    color: white;
+    color: var(--white);
   }
 `;

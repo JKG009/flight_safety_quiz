@@ -35,7 +35,7 @@ export const AccordianContainer = styled.div`
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  `;
+`;
 
 export const AnswerContainer = styled.div`
   display: flex;
@@ -45,6 +45,10 @@ export const AnswerContainer = styled.div`
   border-radius: 4px 4px 0 0;
   height: 50px;
   cursor: pointer;
+  transition: var(--transition-ease);
+  :hover {
+    background-color: var(--darker-grey);
+  }
 `;
 
 export const Subtitle = styled.h3`

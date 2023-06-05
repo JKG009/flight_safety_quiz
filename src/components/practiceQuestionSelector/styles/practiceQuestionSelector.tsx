@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { StyledProps } from "../../../types";
 import {
   Button as LearningQuestionSelectorButton,
   Container as LearningQuestionSelectorContainer,
@@ -26,7 +27,7 @@ export const PracticeQuestionSelectorQuestion = styled(
 export const PracticeQuestionSelectorButton = styled(
   LearningQuestionSelectorButton
 )`
-  color: ${({ status }) => status && status};
+  ${({ endTest }) => endTest && `pointer-events: none; color: black;`}
 `;
 
 export const PracticeQuestionSelectorSubtitle = styled.h2`
@@ -34,6 +35,6 @@ export const PracticeQuestionSelectorSubtitle = styled.h2`
   margin: 1rem 0;
 `;
 
-export const PracticeQuestionSelectorText = styled.span`
-
-`
+export const PracticeQuestionSelectorText = styled.span<StyledProps>`
+  color: ${({ status }) => status};
+`;
