@@ -45,7 +45,6 @@ const PracticeCardAnswer = ({
   const correctAnswer =
     questionObject.answers.find((answer) => answer.isCorrectAnswer)?.text ===
     answer.text;
-
   return (
     <Answer
       selected={selectedAnswer}
@@ -58,6 +57,7 @@ const PracticeCardAnswer = ({
             [questionObject.title]: {
               ...state[questionObject.title],
               answeredCorrectly: true,
+              answer: answer.text
             },
           }));
         } else {
@@ -66,6 +66,7 @@ const PracticeCardAnswer = ({
             [questionObject.title]: {
               ...state[questionObject.title],
               answeredCorrectly: false,
+              answer: answer.text,
             },
           }));
         }
@@ -99,7 +100,6 @@ const PracticeCard = ({
   setEndTest,
 }: PracticeCardProps) => {
   const { title, question, answers } = questionObject;
-
   const [shuffledAnswers, setShuffledAnswers] = useState<AnswerType[]>([]);
   const [selectedAnswerNumber, setSelectedAnswerNumber] = useState(
     combinedQuestionsDetails[title]?.answer
@@ -132,7 +132,10 @@ const PracticeCard = ({
   }, [answers]);
 
   useEffect(() => {
-    if (combinedQuestionsDetails[title]?.answer) {
+    if (
+      combinedQuestionsDetails[title]?.answer === null ||
+      combinedQuestionsDetails[title]?.answer
+    ) {
       setSelectedAnswerNumber(combinedQuestionsDetails[title]?.answer);
     }
   }, [combinedQuestionsDetails, title]);
